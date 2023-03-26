@@ -1,44 +1,32 @@
-import { FunctionComponent, useEffect, useState } from "react";
+import { FunctionComponent } from "react";
 import IconButton from "../../atoms/icon-button/icon-button";
-import { faBars, faBriefcase, faGlobe, faPhone, faHome, faStar, faSun, faUserAlt } from "@fortawesome/free-solid-svg-icons";
+import { faBars, faBriefcase, faPhone, faHome, faStar, faUserAlt } from "@fortawesome/free-solid-svg-icons";
 import IconButtonItem from "../../molecules/icon-button-item/icon-button-item";
 import SideBarTemplate from "../../templates/side-bar-template/side-bar-template";
 import IconButtonTextContainer from "../../molecules/icon-button-text-container/icon-button-text-container";
 import MenuItem from "../../molecules/menu-item/menu-item";
 import { NavLink } from "react-router-dom";
 import LanguageSwitcher from "../language-switcher/language-switcher";
-import { useResponsive } from "../../../hooks/responsiveness";
 import { generateAnimationDelayStyle } from "../../../utils/animation/animation";
 import ModeSwitcher from "../mode-switcher/mode-switcher";
 import Overlay from "../../atoms/overlay/overlay";
+import { useTranslation } from "react-i18next";
+import { useLogic } from "./side-bar.logic";
 
 interface SideBarProps {}
 
 const SideBar: FunctionComponent<SideBarProps> = (props) => {
+  const { t } = useTranslation();
+
   const listItems = [
-    { icon: faHome, label: "Home Page", link: "/" },
-    { icon: faUserAlt, label: "Me & My Experince", link: "/about_me" },
-    { icon: faBriefcase, label: "Portofolio", link: "/portofolio" },
-    { icon: faStar, label: "Testimonials", link: "/testimonials" },
-    { icon: faPhone, label: "Get In Touch", link: "/contact_me" },
+    { icon: faHome, label: t("home_page"), link: "/" },
+    { icon: faUserAlt, label: `${t("me")} & ${t("my_experience")}`, link: "/about_me" },
+    { icon: faBriefcase, label: t("portofolio"), link: "/portofolio" },
+    { icon: faStar, label: t("testimonials"), link: "/testimonials" },
+    { icon: faPhone, label: t("get_in_touch"), link: "/contact_me" },
   ];
 
-  const { isTabletOrMobile, isMobile } = useResponsive();
-
-  const [showIconsBar, setshowIconsBar] = useState(!isMobile);
-
-  const [showFullBar, setshowFullBar] = useState(false);
-
-  const [placeholderWidth, setplaceholderWidth] = useState(0);
-
-  const handlePlaceholderWidth = (width: number | undefined) => typeof width === "number" && !isMobile && setplaceholderWidth(width);
-
-  useEffect(() => {
-    if (isTabletOrMobile && !showIconsBar) {
-      setshowFullBar(false);
-    }
-    if (!isTabletOrMobile && !showFullBar && !showIconsBar) setshowIconsBar(true);
-  }, [isTabletOrMobile]);
+  const { handlePlaceholderWidth, placeholderWidth, setshowFullBar, setshowIconsBar, isMobile, isTabletOrMobile, setplaceholderWidth, showFullBar, showIconsBar } = useLogic();
 
   return (
     <>

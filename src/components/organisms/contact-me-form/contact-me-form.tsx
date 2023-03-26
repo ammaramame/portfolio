@@ -1,43 +1,24 @@
-import { useFormik } from "formik";
-import { FunctionComponent, useState } from "react";
+import { FunctionComponent } from "react";
 import Button from "../../molecules/button/button";
-import * as yup from "yup";
+
 import { FaCheck } from "react-icons/fa";
 import { useResponsive } from "../../../hooks/responsiveness";
+import { useTranslation } from "react-i18next";
+import { capitalizeWords } from "../../../utils/text/text-manipulation";
+import { useLogic } from "./contact-me-form.logic";
 
 interface ContactMeFormProps {}
 
 const ContactMeForm: FunctionComponent<ContactMeFormProps> = () => {
-  const validationSchema = yup.object().shape({ full_name: yup.string().required(), email: yup.string().email().required(), subject: yup.string().required(), message: yup.string().required() });
+  const { t } = useTranslation();
 
-  const form = useFormik({
-    onSubmit: (values) => {
-      fetch("https://formspree.io/f/xwkjnpjd", {
-        method: "POST",
-        body: JSON.stringify(values),
-        headers: {
-          Accept: "application/json",
-        },
-      }).then(() => {
-        setsent(true);
-        setTimeout(() => {
-          window.location.reload();
-        }, 5000);
-      });
-    },
-    initialValues: { full_name: "", email: "", subject: "", message: "" },
-    validationSchema,
-    validateOnBlur: false,
-    validateOnChange: false,
-  });
-
-  const [sent, setsent] = useState(false);
+  const { form, sent } = useLogic();
 
   const gridForm = [
-    { placeholder: "Your Name", type: "text", size: "1-2", break: "m", name: "full_name" },
-    { placeholder: "Email Address", type: "email", size: "1-2", break: "m", name: "email" },
-    { placeholder: "Subject", type: "subject", size: "1-1", break: "s", name: "subject" },
-    { placeholder: "Message", type: "textarea", size: "1-1", break: "s", name: "message" },
+    { placeholder: capitalizeWords(t("your_name")), type: "text", size: "1-2", break: "m", name: "full_name" },
+    { placeholder: capitalizeWords(t("email_address")), type: "email", size: "1-2", break: "m", name: "email" },
+    { placeholder: capitalizeWords(t("subject")), type: "subject", size: "1-1", break: "s", name: "subject" },
+    { placeholder: capitalizeWords(t("message")), type: "textarea", size: "1-1", break: "s", name: "message" },
   ];
 
   const { isTabletOrMobile } = useResponsive();
@@ -73,7 +54,7 @@ const ContactMeForm: FunctionComponent<ContactMeFormProps> = () => {
               onChange={form.handleChange}
               name={item.name}
               style={{ padding: 24 }}
-              className={`${!!form.errors[item.name as keyof typeof form.errors] ? "uk-form-danger" : "uk-form-blank"} uk-text-default  uk-input uk-border-pill uk-box-shadow-small uk-box-shadow-hover-large  uk-form-large`}
+              className={` ${!!form.errors[item.name as keyof typeof form.errors] ? "uk-form-danger" : "uk-form-blank"} uk-text-default  uk-input uk-border-pill uk-box-shadow-small uk-box-shadow-hover-large  uk-form-large`}
               type={item.type}
               placeholder={item.placeholder}
             />
@@ -87,7 +68,7 @@ const ContactMeForm: FunctionComponent<ContactMeFormProps> = () => {
       ))}
       <div className={`uk-margin-top ${responsiveButtonContainerClass}`}>
         <Button fullwidth={isTabletOrMobile} disabled={form.isSubmitting} onClick={() => form.submitForm()} variant="pill" color="danger">
-          Send Message
+          {t("send_message")}
         </Button>
       </div>
     </div>

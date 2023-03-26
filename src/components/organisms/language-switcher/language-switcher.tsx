@@ -1,9 +1,9 @@
 import { faGlobe } from "@fortawesome/free-solid-svg-icons";
 import { FunctionComponent } from "react";
-import { useTranslation } from "react-i18next";
 import IconButton from "../../atoms/icon-button/icon-button";
 import Button from "../../molecules/button/button";
 import LanguageMenu, { IItem } from "../../molecules/language-menu/language-menu";
+import { useLogic } from "./language-switcher.logic";
 
 interface LanguageSwitcherProps {
   variant?: "icon-button" | "button";
@@ -21,15 +21,7 @@ const LanguageSwitcher: FunctionComponent<LanguageSwitcherProps> = (props) => {
     { value: "dk", label: "Danish", iconCode: "dk" },
   ];
 
-  const { i18n } = useTranslation();
-
-  const value = i18n.language;
-
-  const handleLanguageChange = (value: string) => {
-    localStorage.setItem("language", value);
-    i18n.changeLanguage(value);
-    window.location.reload();
-  };
+  const { handleLanguageChange, value } = useLogic();
 
   return variant === "icon-button" ? (
     <LanguageMenu onChange={handleLanguageChange} items={langMenu} value={value}>

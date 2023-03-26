@@ -1,6 +1,5 @@
 import { IconDefinition } from "@fortawesome/free-solid-svg-icons";
-import React, { FunctionComponent, useId } from "react";
-import { Overlay } from "../../../utils/overlay/overlay";
+import { FunctionComponent, useId } from "react";
 import IconButton from "../../atoms/icon-button/icon-button";
 
 export interface IDataListItem {
@@ -17,18 +16,6 @@ const IconButtonMenu: FunctionComponent<IconButtonMenuProps> = (props) => {
   const { mainIcon, dataList } = props;
 
   const id = useId();
-
-  // React.useEffect(() => {
-  //   document.getElementById(id)?.addEventListener("beforeshow", () => Overlay.show("side-menu"));
-
-  //   document.getElementById(id)?.addEventListener("beforehide", () => Overlay.hide());
-
-  //   return () => {
-  //     document.getElementById(id)?.removeEventListener("beforeshow", () => Overlay.show("side-menu"));
-
-  //     document.getElementById(id)?.removeEventListener("beforehide", () => Overlay.hide());
-  //   };
-  // }, []);
 
   return (
     <div className="uk-display-inline" id={id}>

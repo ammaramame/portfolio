@@ -1,7 +1,7 @@
 import { IconDefinition } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { FunctionComponent, ReactNode } from "react";
-import useSound from "use-sound";
+import { useSoundEffects } from "../../../hooks/sounds-effects";
 
 interface ButtonProps {
   children?: ReactNode;
@@ -25,10 +25,10 @@ const Button: FunctionComponent<ButtonProps> = (props) => {
 
   const fullwidthClass = fullwidth ? "uk-width-1-1" : "";
 
-  const [clickSoundsPlay] = useSound("/sounds/click-button.mp3");
+  const { playClickSound } = useSoundEffects();
 
   return (
-    <div className="uk-display-inline" onClick={() => clickSoundsPlay()}>
+    <div className="uk-display-inline" onClick={() => playClickSound()}>
       <button disabled={disabled} className={`${sizeClass} ${colorClass} ${shapeClass} ${fullwidthClass}`} {...rest}>
         {icon && <FontAwesomeIcon icon={icon} className="uk-margin-right uk-margin-remove-vertical uk-margin-small-right" />}
         {children}

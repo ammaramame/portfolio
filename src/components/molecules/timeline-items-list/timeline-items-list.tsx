@@ -1,5 +1,4 @@
 import { FunctionComponent } from "react";
-import { FaBriefcase, FaGraduationCap } from "react-icons/fa";
 import profileConfig from "../../../configs/profile/profile";
 import TimelineItem from "../timeline-item/timeline-item";
 

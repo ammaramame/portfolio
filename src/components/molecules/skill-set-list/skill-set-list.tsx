@@ -22,7 +22,11 @@ const SkillSetList: FunctionComponent<SkillSetListProps> = (props) => {
   return (
     <div uk-grid="">
       {filterdData.map((item, index) => (
-        <div className={`uk-width-1-2 uk-width-1-${columnsNumber}@m uk-display-inline-block ${animationDelay ? "animate__animated animate__fadeInUp  animate__faster" : ""}`} key={item.priorty} style={{ ...(animationDelay ? generateAnimationDelayStyle(index * 0.3 + animationDelay) : {}) }}>
+        <div
+          className={`uk-width-1-1 uk-width-1-2@s uk-width-1-${columnsNumber}@m uk-display-inline-block ${animationDelay ? "animate__animated animate__fadeInUp  animate__faster" : ""}`}
+          key={item.title}
+          style={{ ...(animationDelay ? generateAnimationDelayStyle(index * 0.3 + animationDelay) : {}) }}
+        >
           <ExperienceLevelItem icon={item.icon} title={item.title} value={item.value} />
         </div>
       ))}

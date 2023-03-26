@@ -1,4 +1,4 @@
-import { FunctionComponent, ReactNode, useEffect, useId, useRef } from "react";
+import { FunctionComponent, useEffect, useRef } from "react";
 import Typed, { TypedOptions } from "typed.js";
 
 interface TypedTextProps extends TypedOptions {

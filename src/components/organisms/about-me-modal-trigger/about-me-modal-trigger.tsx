@@ -1,19 +1,17 @@
 import { FunctionComponent } from "react";
-import { useSearchParams } from "react-router-dom";
+import { useTranslation } from "react-i18next";
+import { useLogic } from "./about-me-modal-trigger.logic";
 
 interface AboutMeModalTriggerProps {}
 
 const AboutMeModalTrigger: FunctionComponent<AboutMeModalTriggerProps> = () => {
-  const [searchParamsFromRoute, setSearchParamsFromRoute] = useSearchParams();
+  const { t } = useTranslation();
 
-  const handleShow = () => {
-    searchParamsFromRoute.set("about_me_modal", "show");
-    setSearchParamsFromRoute(searchParamsFromRoute);
-  };
+  const { handleShow } = useLogic();
 
   return (
     <button onClick={handleShow} className="uk-width-1-1 uk-button uk-button-large uk-button-default">
-      See More
+      {t("see_more")}
     </button>
   );
 };

@@ -1,13 +1,13 @@
 export default {
   translation: {
     salutation: "hi there",
-    introduction: "i'm {{firstName}} {{lastName}}",
+    introduction: "i'm",
     introudction_job_title: "and i'm a",
     developer: "developer",
     download: "download",
     cv: "CV",
     select: "select",
-    my_portofolio: "portofolio",
+    my_portofolio: "my portofolio",
     about_me: "about",
     skill_level_question: "what is my skill level",
     see_more: "see more",

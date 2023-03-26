@@ -1,6 +1,6 @@
 import { FunctionComponent } from "react";
-import { useSearchParams } from "react-router-dom";
 import ExperienceCard from "../experience-card/experience-card";
+import { useLogic } from "./portofolio-list.logic";
 
 export interface IPortofolioItem {
   label?: string;
@@ -16,12 +16,7 @@ interface PortofolioListProps {
 const PortofolioList: FunctionComponent<PortofolioListProps> = (props) => {
   const { contents } = props;
 
-  const [searchParamsFromRoute, setSearchParamsFromRoute] = useSearchParams();
-
-  const handleShowPortofolioViewer = (id: string) => {
-    searchParamsFromRoute.set("project_id", id);
-    setSearchParamsFromRoute(searchParamsFromRoute);
-  };
+  const { handleShowPortofolioViewer } = useLogic();
 
   return (
     <ul className="js-filter uk-child-width-1-1 uk-child-width-1-2@m uk-child-width-1-3@l uk-text-center uk-grid" data-uk-grid>

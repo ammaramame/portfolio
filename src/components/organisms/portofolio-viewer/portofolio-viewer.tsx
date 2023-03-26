@@ -1,4 +1,4 @@
-import { FunctionComponent, useCallback, useEffect, useRef, useState } from "react";
+import { FunctionComponent } from "react";
 import LightGallery from "lightgallery/react";
 import lgThumbnail from "lightgallery/plugins/thumbnail";
 import lgZoom from "lightgallery/plugins/zoom";
@@ -11,37 +11,14 @@ import "lightgallery/css/lg-thumbnail.css";
 import "lightgallery/css/lg-fullscreen.css";
 import "lightgallery/css/lg-share.css";
 import "lightgallery/css/lg-autoplay.css";
-import { InitDetail } from "lightgallery/lg-events";
-import profileConfig from "../../../configs/profile/profile";
+import { IParams, useLogic } from "./portofolio-viewer.logic";
 
-interface PortofolioViewerProps {
-  open?: boolean;
-  onClose?: () => void;
-  projectId?: string | null;
-}
+interface PortofolioViewerProps extends IParams {}
 
 const PortofolioViewer: FunctionComponent<PortofolioViewerProps> = (props) => {
-  const { open, onClose, projectId } = props;
+  const { onClose } = props;
 
-  const lightGallery = useRef<any>(null);
-
-  const onInit = useCallback((detail: InitDetail) => {
-    if (detail) {
-      lightGallery.current = detail.instance;
-    }
-  }, []);
-
-  const { projects } = profileConfig;
-
-  const items = projects.find((item) => item.id === projectId)?.data;
-
-  useEffect(() => {
-    lightGallery.current.refresh();
-  }, [projectId]);
-
-  useEffect(() => {
-    if (open) lightGallery.current?.openGallery(0);
-  }, [open]);
+  const { items, onInit } = useLogic(props);
 
   return <LightGallery onAfterClose={onClose} closeOnTap={false} zoomFromOrigin={false} dynamicEl={items} dynamic={true} toggleThumb={true} onInit={onInit} speed={500} allowMediaOverlap={true} plugins={[lgThumbnail, lgZoom, lgFullscreen, lgShare, lgAutoplay]} />;
 };

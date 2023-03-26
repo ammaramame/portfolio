@@ -1,4 +1,5 @@
 import { FunctionComponent } from "react";
+import { useTranslation } from "react-i18next";
 import { useResponsive } from "../../../hooks/responsiveness";
 import { generateAnimationDelayStyle } from "../../../utils/animation/animation";
 import ContactMeHeader from "../../molecules/contact-me-header/section-header";
@@ -12,6 +13,8 @@ interface ContactMePageProps {}
 const ContactMePage: FunctionComponent<ContactMePageProps> = () => {
   const { isTabletOrMobile } = useResponsive();
 
+  const { t } = useTranslation();
+
   const responsiveClass = isTabletOrMobile ? "uk-flex uk-flex-center" : "";
 
   return (
@@ -19,7 +22,7 @@ const ContactMePage: FunctionComponent<ContactMePageProps> = () => {
       firstSection={
         <div className={`${responsiveClass}`}>
           <div className="animate__animated animate__fadeInUp" style={{ ...generateAnimationDelayStyle(0.5) }}>
-            <ContactMeHeader>Get in Touch</ContactMeHeader>
+            <ContactMeHeader>{t("get_in_touch")}</ContactMeHeader>
           </div>
           {!isTabletOrMobile && (
             <div className="animate__animated animate__fadeInUp" style={{ ...generateAnimationDelayStyle(0.8) }}>

@@ -1,4 +1,5 @@
 import { FunctionComponent } from "react";
+import { useTranslation } from "react-i18next";
 import profileConfig from "../../../configs/profile/profile";
 import { useResponsive } from "../../../hooks/responsiveness";
 import { generateAnimationDelayStyle } from "../../../utils/animation/animation";
@@ -15,6 +16,8 @@ const AboutMePage: FunctionComponent<AboutMePageProps> = () => {
 
   const { isTabletOrMobile } = useResponsive();
 
+  const { t } = useTranslation();
+
   const containerResponsiveClass = isTabletOrMobile ? "uk-flex-column-reverse uk-flex-middle" : "";
 
   const containerResponsiveMarginClass = isTabletOrMobile ? "uk-margin-top uk-margin-bottom" : "";
@@ -23,11 +26,13 @@ const AboutMePage: FunctionComponent<AboutMePageProps> = () => {
 
   return (
     <div className="uk-flex uk-flex-middle uk-animation-toggle" style={{ minHeight: "100vh" }}>
-      <div className={`uk-margin-auto uk-container uk-container-xlarge ${containerResponsiveMarginClass}`} style={{ paddingInline: 50 }}>
+      <div className={`uk-margin-auto uk-container uk-container-xlarge ${containerResponsiveMarginClass}`}>
         <div className={` uk-flex ${containerResponsiveClass}`}>
           <div className="uk-width-1-1 uk-width-1-2@m">
             <div className="uk-margin animate__animated animate__fadeInUp" style={{ ...generateAnimationDelayStyle(0.5) }}>
-              <SectionHeader>About Me</SectionHeader>
+              <SectionHeader>
+                {t("about")} {t("me")}
+              </SectionHeader>
             </div>
             <div>
               <HeaderParagraph paragraphProps={{ className: " animate__animated animate__fadeInUp", style: { ...generateAnimationDelayStyle(0.8) } }} paragraph={bio} />
@@ -36,7 +41,7 @@ const AboutMePage: FunctionComponent<AboutMePageProps> = () => {
               <HeaderParagraph
                 headerProps={{ className: " animate__animated animate__fadeInUp", style: { ...generateAnimationDelayStyle(1.1) } }}
                 paragraphProps={{ className: " animate__animated animate__fadeInUp", style: { ...generateAnimationDelayStyle(1.4) } }}
-                header="What is my skill level?"
+                header={t("skill_level_question") ?? undefined}
                 paragraph="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris ipsum sit nibh amet egestas tellus."
               />
             </div>

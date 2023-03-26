@@ -1,18 +1,19 @@
 import { FunctionComponent } from "react";
 import profileConfig from "../../../configs/profile/profile";
 import useSound from "use-sound";
+import { useSoundEffects } from "../../../hooks/sounds-effects";
 
 interface SocialLinksListProps {}
 
 const SocialLinksList: FunctionComponent<SocialLinksListProps> = () => {
   const { social_media } = profileConfig;
 
-  const [playHover] = useSound("/sounds/hover-small-button.mp3");
+  const { playHoverSound } = useSoundEffects();
 
   return (
     <div>
       {social_media.map((item) => (
-        <a onMouseEnter={() => playHover()} key={item.label} uk-tooltip={item.label} href={item.link} className="uk-icon-button uk-margin-small-right" uk-icon="twitter">
+        <a onMouseEnter={() => playHoverSound()} key={item.label} uk-tooltip={item.label} href={item.link} className="uk-icon-button uk-margin-small-right" uk-icon="twitter">
           <item.icon size={20} />
         </a>
       ))}

@@ -1,6 +1,7 @@
 import { FunctionComponent, useContext } from "react";
+import { useTranslation } from "react-i18next";
 import profileConfig from "../../../configs/profile/profile";
-import { downloadFile } from "../../../utils/overlay/downloader/downloader";
+import { downloadFile } from "../../../utils/downloader/downloader";
 import { ThemeContext } from "../../providers/theme-provider";
 import Button from "../button/button";
 
@@ -17,6 +18,8 @@ const CvTrigger: FunctionComponent<CvTriggerProps> = (props) => {
     if (cvs.length === 1) downloadFile(cvs[0].link, cvs[0].type);
   };
 
+  const { t } = useTranslation();
+
   const theme = useContext(ThemeContext);
 
   const backgroundColorClass = theme?.theme === "dark" ? "uk-background-secondary" : "";
@@ -24,7 +27,7 @@ const CvTrigger: FunctionComponent<CvTriggerProps> = (props) => {
   return (
     <div className={`uk-inline ${fullwidth ? "uk-width-1-1" : ""}`}>
       <Button onClick={handleDownloadSoloCv} fullwidth={fullwidth} variant="rounded" color="danger">
-        Download CV
+        {t("download")} {t("cv")}
       </Button>
       {cvs.length > 1 && (
         <div uk-dropdown="mode: click" className="uk-padding-remove">
@@ -34,8 +37,8 @@ const CvTrigger: FunctionComponent<CvTriggerProps> = (props) => {
                 <li key={`${item.link}-${item.type}`}>
                   <a href="#" onClick={() => downloadFile(item.link, item.type)}>
                     <div style={{ minWidth: 150 }}>
-                      <div className="uk-nav-subtitle uk-text-large">
-                        Select <span className="uk-text-bold">{item.type}</span> CV
+                      <div className="uk-nav-subtitle uk-text-large uk-text-capitalize">
+                        {t("select")} <span className="uk-text-bold">{item.type}</span> {t("cv")}
                       </div>
                     </div>
                   </a>

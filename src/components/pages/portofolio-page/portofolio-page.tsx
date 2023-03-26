@@ -1,4 +1,5 @@
 import { FunctionComponent } from "react";
+import { useTranslation } from "react-i18next";
 import profileConfig from "../../../configs/profile/profile";
 import { generateAnimationDelayStyle } from "../../../utils/animation/animation";
 import SectionHeader from "../../molecules/contact-me-header/section-header";
@@ -10,6 +11,8 @@ interface PortofolioProps {}
 const Portofolio: FunctionComponent<PortofolioProps> = () => {
   const { project_filters, projects } = profileConfig;
 
+  const { t } = useTranslation();
+
   const arrayOfFilters = Object.entries(project_filters);
 
   return (
@@ -17,7 +20,7 @@ const Portofolio: FunctionComponent<PortofolioProps> = () => {
       <PortofolioTemplate
         tagElement={
           <div className="animate__animated animate__fadeInUp" style={{ ...generateAnimationDelayStyle(0.5) }}>
-            <SectionHeader>My Portofolio</SectionHeader>
+            <SectionHeader>{t("my_portofolio")}</SectionHeader>
           </div>
         }
         filter={
@@ -25,7 +28,7 @@ const Portofolio: FunctionComponent<PortofolioProps> = () => {
             <div className="">
               <ul className="uk-subnav uk-subnav-pill" uk-margin>
                 <li className="uk-active" uk-filter-control="">
-                  <a href="#">All</a>
+                  <a href="#">{t("all")}</a>
                 </li>
               </ul>
             </div>

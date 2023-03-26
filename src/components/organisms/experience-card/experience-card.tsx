@@ -1,6 +1,7 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import { FunctionComponent, useContext } from "react";
 import { FaEye } from "react-icons/fa";
-import useSound from "use-sound";
+import { useSoundEffects } from "../../../hooks/sounds-effects";
 import { ThemeContext } from "../../providers/theme-provider";
 
 interface ExperienceCardProps {
@@ -14,7 +15,7 @@ const ExperienceCard: FunctionComponent<ExperienceCardProps> = (props) => {
 
   const backgroundColorClass = theme?.theme === "dark" ? "uk-overlay-primary" : "uk-overlay-default";
 
-  const [clickSound] = useSound("/sounds/click-button.mp3");
+  const { playHoverSound } = useSoundEffects();
 
   return (
     <div style={{ width: 450 }} className="uk-card uk-padding-small uk-border-rounded uk-overflow-hidden pointer uk-transition-toggle uk-inline-clip uk-box-shadow-small">
@@ -28,7 +29,7 @@ const ExperienceCard: FunctionComponent<ExperienceCardProps> = (props) => {
           <a
             onClick={() => {
               onClick?.();
-              clickSound();
+              playHoverSound();
             }}
             className="uk-icon-button uk-margin-small-right "
             style={{ width: 55, height: 55 }}

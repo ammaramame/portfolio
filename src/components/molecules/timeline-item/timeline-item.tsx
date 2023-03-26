@@ -4,23 +4,23 @@ interface TimelineItemProps {
   time: string;
   place: string;
   title: string;
-  description?: string;
+  description_list?: string[];
   icon: any;
 }
 
 const TimelineItem: FunctionComponent<TimelineItemProps> = (props) => {
-  const { icon, place, time, title, description } = props;
+  const { icon, place, time, title, description_list } = props;
 
   const Icon = icon;
 
   return (
     <div className="uk-flex uk-flex-nowrap">
       {Icon && (
-        <div className="uk-flex uk-flex-column uk-flex-center uk-margin-small-right">
-          <div className="uk-background-primary uk-inline-block uk-border-circle uk-flex uk-flex-middle uk-flex-center uk-light" style={{ width: 35, height: 35 }}>
+        <div className="uk-flex uk-flex-column  uk-margin-small-right">
+          <div className="uk-background-primary uk-inline-block uk-border-circle uk-flex uk-flex-middle uk-flex-center uk-light" style={{ width: 35, height: 35, flexShrink: 0 }}>
             <Icon size={18} />
           </div>
-          <hr className="uk-divider-vertical uk-margin-remove-vertical" />
+          <hr className="uk-divider-vertical uk-margin-remove-vertical" style={{ height: "100%" }} />
         </div>
       )}
 
@@ -31,13 +31,17 @@ const TimelineItem: FunctionComponent<TimelineItemProps> = (props) => {
 
         <div className=" uk-flex uk-flex-middle" style={{ fontSize: 17, marginTop: 8 }}>
           <span className="uk-text-bold">{title}</span>
-          {/* <span style={{ paddingInline: 4 }}></span> */}
+
           <hr className="uk-divider-small" style={{ width: 10, paddingInline: 8 }} />
           <span className="uk-text-muted ">{place}</span>
         </div>
 
         <div style={{ maxWidth: 600, marginTop: 8 }}>
-          <span className="uk-text-default">{description}</span>
+          {description_list?.map((item) => (
+            <div key={item} className="uk-text-default">
+              - {item}
+            </div>
+          ))}
         </div>
       </div>
     </div>
