@@ -18,7 +18,6 @@ const ThemeProvider: FunctionComponent<ThemeProviderProps> = (props) => {
 
   useEffect(() => {
     const body = document.body;
-
     if (theme === "dark") body.classList.add("uk-background-secondary");
     if (theme === "light") body.classList.remove("uk-background-secondary");
   }, [theme]);
