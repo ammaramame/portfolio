@@ -49,11 +49,7 @@
       "react-app/jest"
     ],
     "overrides": [
-      {
-        "rules": {
-          "import/no-anonymous-default-export": "off"
-        }
-      }
+     
     ]
   },
   "browserslist": {
