@@ -17,7 +17,7 @@ export interface ProfileConfigs {
     icon: IconType;
     label: string;
   }[];
-  skill_set: {
+  skill_set?: {
     icon: string;
     value: number;
     title: string;

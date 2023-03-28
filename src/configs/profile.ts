@@ -1,12 +1,12 @@
-import { i18next } from "../../setups/languages";
-import { switchConfigByLanguage } from "../../utils/configs/configs-manipulation";
+import { i18next } from "../setups/languages";
+import { switchConfigByLanguage } from "../utils/configs/configs-manipulation";
 import { FaBehance, FaBriefcase, FaEnvelope, FaGithub, FaGraduationCap, FaLinkedinIn } from "react-icons/fa";
 import reactIcon from "devicon/icons/react/react-original.svg";
 import mongoDBIcon from "devicon/icons/mongodb/mongodb-original.svg";
 import phpIcon from "devicon/icons/php/php-original.svg";
 import nestJsIcon from "devicon/icons/nestjs/nestjs-plain.svg";
 import laravelIcon from "devicon/icons/laravel/laravel-plain.svg";
-import { ProfileConfigs } from "../../interfaces/profile-configs";
+import { ProfileConfigs } from "../interfaces/profile-configs";
 
 const profileConfig = {
   first_name_en: "Ammar",

@@ -1,5 +1,5 @@
 import { FunctionComponent } from "react";
-import profileConfig from "../../../configs/profile/profile";
+import profileConfig from "../../../configs/profile";
 
 interface FancyProfilePicProps {}
 

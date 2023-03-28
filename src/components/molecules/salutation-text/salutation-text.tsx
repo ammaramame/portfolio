@@ -1,6 +1,6 @@
 import { FunctionComponent } from "react";
 import { useTranslation } from "react-i18next";
-import profileConfig from "../../../configs/profile/profile";
+import profileConfig from "../../../configs/profile";
 
 interface SalutationTextProps {}
 

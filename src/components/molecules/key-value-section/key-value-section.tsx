@@ -1,5 +1,5 @@
 import { FunctionComponent } from "react";
-import profileConfig from "../../../configs/profile/profile";
+import profileConfig from "../../../configs/profile";
 import KeyValueInfoPear from "../key-value-info-pear/key-value-info-pear";
 
 interface KeyValueSectionProps {}

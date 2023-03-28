@@ -1,4 +1,5 @@
 import { createContext, FunctionComponent, ReactNode, useEffect, useState } from "react";
+import { appConfig } from "../../configs/app";
 
 interface ThemeProviderProps {
   children?: ReactNode;
@@ -9,12 +10,12 @@ interface IProviderValue {
   settheme: (theme: "light" | "dark") => void;
 }
 
-export const ThemeContext = createContext({ theme: window.localStorage.getItem("theme") ?? "dark", settheme: () => {} } as IProviderValue | undefined);
+export const ThemeContext = createContext({ theme: window.localStorage.getItem("theme") ?? appConfig.default_mode, settheme: () => {} } as IProviderValue | undefined);
 
 const ThemeProvider: FunctionComponent<ThemeProviderProps> = (props) => {
   const { children } = props;
 
-  const [theme, settheme] = useState<"light" | "dark">((window.localStorage.getItem("theme") as IProviderValue["theme"]) ?? "dark");
+  const [theme, settheme] = useState<"light" | "dark">((window.localStorage.getItem("theme") as IProviderValue["theme"]) ?? appConfig.default_mode);
 
   useEffect(() => {
     const body = document.body;

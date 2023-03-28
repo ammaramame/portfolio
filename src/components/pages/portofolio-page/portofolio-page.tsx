@@ -1,6 +1,6 @@
 import { FunctionComponent } from "react";
 import { useTranslation } from "react-i18next";
-import profileConfig from "../../../configs/profile/profile";
+import profileConfig from "../../../configs/profile";
 import { generateAnimationDelayStyle } from "../../../utils/animation/animation";
 import SectionHeader from "../../molecules/contact-me-header/section-header";
 import PortofolioList from "../../organisms/portofolio-list/portofolio-list";

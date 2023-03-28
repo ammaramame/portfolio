@@ -3,14 +3,16 @@ import { initReactI18next } from "react-i18next";
 import en from "../assets/locales/en";
 import de from "../assets/locales/de";
 
-i18next.use(initReactI18next).init({
-  lng: localStorage.getItem("language") ?? "en", // if you're using a language detector, do not define the lng option
-  debug: true,
+import LanguageDetector from "i18next-browser-languagedetector";
 
-  resources: {
-    en,
-    de,
-  },
+const i18nextInstance = i18next;
+
+i18nextInstance.use(initReactI18next);
+
+i18nextInstance.use(LanguageDetector);
+
+i18nextInstance.init({
+  resources: { en, de },
 });
 
 export { i18next };

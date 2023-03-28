@@ -1,6 +1,6 @@
 import { FunctionComponent } from "react";
 import { useTranslation } from "react-i18next";
-import profile from "../../../configs/profile/profile";
+import profile from "../../../configs/profile";
 import { capitalizeFirstLetter } from "../../../utils/text/text-manipulation";
 import TypedText from "../../atoms/typed-text/typed-text";
 
