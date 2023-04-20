@@ -6,6 +6,7 @@ export interface ProfileConfigs {
   profile_pic_main: string;
   email: string;
   bio: string;
+  skills_introduction: string;
   professions: string[];
   cvs: {
     type: string;
@@ -46,13 +47,15 @@ export interface ProfileConfigs {
   projects: {
     date: string;
     type: string;
+    name: string;
     id: string;
     data?: {
       id: string;
       size: string;
       src: string;
       thumb: string;
-      subHtml: string;
+      head?: string;
+      paragraph?: string;
     }[];
   }[];
 

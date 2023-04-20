@@ -12,7 +12,7 @@ import AboutMeModalTrigger from "../../organisms/about-me-modal-trigger/about-me
 interface AboutMePageProps {}
 
 const AboutMePage: FunctionComponent<AboutMePageProps> = () => {
-  const { bio } = profileConfig;
+  const { bio, skills_introduction } = profileConfig;
 
   const { isTabletOrMobile } = useResponsive();
 
@@ -42,7 +42,7 @@ const AboutMePage: FunctionComponent<AboutMePageProps> = () => {
                 headerProps={{ className: " animate__animated animate__fadeInUp", style: { ...generateAnimationDelayStyle(1.1) } }}
                 paragraphProps={{ className: " animate__animated animate__fadeInUp", style: { ...generateAnimationDelayStyle(1.4) } }}
                 header={t("skill_level_question") ?? undefined}
-                paragraph="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris ipsum sit nibh amet egestas tellus."
+                paragraph={skills_introduction}
               />
             </div>
             <div className="uk-margin-large-top">

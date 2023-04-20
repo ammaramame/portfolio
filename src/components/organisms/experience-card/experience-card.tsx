@@ -6,10 +6,13 @@ import { ThemeContext } from "../../providers/theme-provider";
 
 interface ExperienceCardProps {
   onClick?: () => void;
+  title?: string;
+  src?: string;
+  name?: string;
 }
 
 const ExperienceCard: FunctionComponent<ExperienceCardProps> = (props) => {
-  const { onClick } = props;
+  const { onClick, name, src, title } = props;
 
   const theme = useContext(ThemeContext);
 
@@ -19,12 +22,12 @@ const ExperienceCard: FunctionComponent<ExperienceCardProps> = (props) => {
 
   return (
     <div style={{ width: 450 }} className="uk-card uk-padding-small uk-border-rounded uk-overflow-hidden pointer uk-transition-toggle uk-inline-clip uk-box-shadow-small">
-      <img alt="resource" src={"/imgs/l-one.png"} className="uk-transition-scale-up uk-transition-opaque" />
+      <img alt="resource" src={src} className="uk-transition-scale-up uk-transition-opaque" style={{ height: 250, width: "100%", objectFit: "cover" }} />
       <div className={`uk-transition-fade uk-position-cover uk-overlay ${backgroundColorClass} `}>
         <div className="uk-position-top-left" style={{ left: 20, top: 0 }}>
-          <div className="uk-label uk-text-capitalize uk-transition-slide-top-small ">Frontend</div>
+          <div className="uk-label uk-text-capitalize uk-transition-slide-top-small ">{title}</div>
         </div>
-        <div className="uk-text-bold  uk-position-center uk-text-capitalize uk-transition-slide-bottom-small text-big">L-One systems offical</div>
+        <div className="uk-text-bold  uk-position-center uk-text-capitalize uk-transition-slide-bottom-small text-big">{name}</div>
         <div className="uk-position-bottom-left" style={{ bottom: 25, left: 25 }}>
           <a
             onClick={() => {

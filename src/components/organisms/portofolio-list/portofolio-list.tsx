@@ -7,6 +7,8 @@ export interface IPortofolioItem {
   date?: string;
   type?: string;
   id: string;
+  name?: string;
+  src?: string;
 }
 
 interface PortofolioListProps {
@@ -22,7 +24,7 @@ const PortofolioList: FunctionComponent<PortofolioListProps> = (props) => {
     <ul className="js-filter uk-child-width-1-1 uk-child-width-1-2@m uk-child-width-1-3@l uk-text-center uk-grid" data-uk-grid>
       {contents.map((item) => (
         <li key={item.date} data-date={item.date} data-stack={item.type}>
-          <ExperienceCard onClick={() => handleShowPortofolioViewer(item.id)} />
+          <ExperienceCard src={item.src} name={item.name} title={item.type} onClick={() => handleShowPortofolioViewer(item.id)} />
         </li>
       ))}
     </ul>

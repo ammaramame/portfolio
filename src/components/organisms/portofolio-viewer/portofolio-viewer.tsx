@@ -12,6 +12,7 @@ import "lightgallery/css/lg-fullscreen.css";
 import "lightgallery/css/lg-share.css";
 import "lightgallery/css/lg-autoplay.css";
 import { IParams, useLogic } from "./portofolio-viewer.logic";
+import { GalleryItem } from "lightgallery/lg-utils";
 
 interface PortofolioViewerProps extends IParams {}
 
@@ -20,7 +21,13 @@ const PortofolioViewer: FunctionComponent<PortofolioViewerProps> = (props) => {
 
   const { items, onInit } = useLogic(props);
 
-  return <LightGallery onAfterClose={onClose} closeOnTap={false} zoomFromOrigin={false} dynamicEl={items} dynamic={true} toggleThumb={true} onInit={onInit} speed={500} allowMediaOverlap={true} plugins={[lgThumbnail, lgZoom, lgFullscreen, lgShare, lgAutoplay]} />;
+  const mappedItems: GalleryItem[] =
+    items?.map((item) => ({
+      ...item,
+      subHtml: `<div class="lightGallery-captions"><h4>${item.head}</h4><p>${item.paragraph}</p></div>`,
+    })) ?? [];
+
+  return <LightGallery onAfterClose={onClose} closeOnTap={false} zoomFromOrigin={false} dynamicEl={mappedItems} dynamic={true} toggleThumb={true} onInit={onInit} speed={500} allowMediaOverlap={true} plugins={[lgThumbnail, lgZoom, lgFullscreen, lgShare, lgAutoplay]} />;
 };
 
 export default PortofolioViewer;

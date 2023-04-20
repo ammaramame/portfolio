@@ -4,7 +4,7 @@ import { ThemeContext } from "../../providers/theme-provider";
 interface ExperienceLevelItemProps {
   value?: number;
   title: string;
-  icon: string;
+  icon?: string;
 }
 
 const ExperienceLevelItem: FunctionComponent<ExperienceLevelItemProps> = (props) => {
@@ -21,11 +21,11 @@ const ExperienceLevelItem: FunctionComponent<ExperienceLevelItemProps> = (props)
   return (
     <div className="uk-flex uk-flex-middle">
       <div className={`uk-margin-small-right uk-border-circle uk-flex uk-flex-middle uk-flex-center uk-box-shadow-small ${backgroundColorClass}`} style={{ flexShrink: 0, width: 60, height: 60 }}>
-        <img src={icon} width={35} />
+        {icon ? <img src={icon} width={35} /> : <div className="text-huge">#</div>}
       </div>
       <div style={{ width: 300 }}>
         <h6 className={`uk-text-bold uk-margin-small-bottom ${textClass} uk-text-default`}>{title}</h6>
-        <progress className={`uk-progress uk-margin-remove-vertical ${progressBackgroundColorClass} uk-border-primary uk-border-rounded`} style={{ border: "solid 1px", padding: 2 }} value={value} max={5}></progress>
+        <progress className={`uk-progress uk-margin-remove-vertical ${progressBackgroundColorClass} uk-border-primary uk-border-rounded`} style={{ border: "solid 1px", padding: 2 }} value={value} max={10}></progress>
       </div>
     </div>
   );

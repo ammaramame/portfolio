@@ -15,6 +15,8 @@ const Portofolio: FunctionComponent<PortofolioProps> = () => {
 
   const arrayOfFilters = Object.entries(project_filters);
 
+  const items = projects.map((item) => ({ ...item, src: item?.data?.[0].thumb }));
+
   return (
     <div uk-filter="target: .js-filter">
       <PortofolioTemplate
@@ -48,7 +50,7 @@ const Portofolio: FunctionComponent<PortofolioProps> = () => {
         content={
           <div className="animate__animated animate__fadeIn uk-display-inline-block uk-width-1-1" style={{ ...generateAnimationDelayStyle(1.1) }}>
             <div>
-              <PortofolioList contents={projects} />
+              <PortofolioList contents={items} />
             </div>
           </div>
         }
