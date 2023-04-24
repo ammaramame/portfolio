@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useRef } from "react";
-import profileConfig from "../../../configs/profile";
+import profileConfig from "../../../configs/profile.config";
 import { InitDetail } from "lightgallery/lg-events";
 
 export interface IParams {

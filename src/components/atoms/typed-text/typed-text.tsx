@@ -15,7 +15,7 @@ const TypedText: FunctionComponent<TypedTextProps> = (props) => {
   useEffect(() => {
     if (el.current)
       typed = new Typed(el.current, {
-        strings: contents,
+        strings: contents ?? [],
         ...rest,
       });
 

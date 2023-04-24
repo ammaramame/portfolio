@@ -1,5 +1,5 @@
 import { createContext, FunctionComponent, ReactNode, useEffect, useState } from "react";
-import { appConfig } from "../../configs/app";
+import { appConfig } from "../../configs/app.config";
 
 interface ThemeProviderProps {
   children?: ReactNode;

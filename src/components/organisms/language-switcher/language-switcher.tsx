@@ -4,6 +4,7 @@ import IconButton from "../../atoms/icon-button/icon-button";
 import Button from "../../molecules/button/button";
 import LanguageMenu, { IItem } from "../../molecules/language-menu/language-menu";
 import { useLogic } from "./language-switcher.logic";
+import { appConfig } from "../../../configs/app.config";
 
 interface LanguageSwitcherProps {
   variant?: "icon-button" | "button";
@@ -11,6 +12,7 @@ interface LanguageSwitcherProps {
 
 const LanguageSwitcher: FunctionComponent<LanguageSwitcherProps> = (props) => {
   const { variant } = props;
+  const { languages } = appConfig;
   const langMenu: IItem[] = [
     { value: "en", label: "English", iconCode: "uk" },
     { value: "de", label: "Deutch", iconCode: "de" },
@@ -19,7 +21,7 @@ const LanguageSwitcher: FunctionComponent<LanguageSwitcherProps> = (props) => {
     { value: "se", label: "Swedish", iconCode: "se" },
     { value: "no", label: "Norwegian", iconCode: "no" },
     { value: "dk", label: "Danish", iconCode: "dk" },
-  ];
+  ].filter((item) => languages.includes(item.value));
 
   const { handleLanguageChange, value } = useLogic();
 

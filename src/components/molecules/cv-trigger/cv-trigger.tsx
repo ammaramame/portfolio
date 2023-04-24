@@ -1,6 +1,6 @@
 import { FunctionComponent, useContext } from "react";
 import { useTranslation } from "react-i18next";
-import profileConfig from "../../../configs/profile";
+import profileConfig from "../../../configs/profile.config";
 import { downloadFile } from "../../../utils/downloader/downloader";
 import { ThemeContext } from "../../providers/theme-provider";
 import Button from "../button/button";

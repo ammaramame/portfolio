@@ -1,5 +1,5 @@
 import { FunctionComponent } from "react";
-import profileConfig from "../../../configs/profile";
+import profileConfig from "../../../configs/profile.config";
 import ValueTitle from "../value-title-box/value-title-box";
 
 interface ValueTitleSectionProps {}

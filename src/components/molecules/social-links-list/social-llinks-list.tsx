@@ -1,5 +1,5 @@
 import { FunctionComponent } from "react";
-import profileConfig from "../../../configs/profile";
+import profileConfig from "../../../configs/profile.config";
 import { useSoundEffects } from "../../../hooks/sounds-effects";
 
 interface SocialLinksListProps {}

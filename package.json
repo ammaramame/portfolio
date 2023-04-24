@@ -39,6 +39,9 @@
     "yup": "^1.0.2"
   },
   "scripts": {
+    "generate-configs":"node ./src/scripts/create-configs.js",
+    "prestart": "npm run generate-configs",
+    "prebuild":"npm run generate-configs",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",

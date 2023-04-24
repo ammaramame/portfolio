@@ -2,7 +2,7 @@ import { FunctionComponent } from "react";
 import ExperienceLevelItem from "../experience-level-item/experience-level-item";
 
 import { generateAnimationDelayStyle } from "../../../utils/animation/animation";
-import profileConfig from "../../../configs/profile";
+import profileConfig from "../../../configs/profile.config";
 
 interface SkillSetListProps {
   fullView?: boolean;

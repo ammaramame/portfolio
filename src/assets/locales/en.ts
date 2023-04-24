@@ -1,4 +1,4 @@
-export default {
+const en = {
   translation: {
     salutation: "hi there",
     introduction: "i'm",
@@ -41,3 +41,5 @@ export default {
     is_required_field: "{{field}} is required field",
   },
 };
+
+export default en;
