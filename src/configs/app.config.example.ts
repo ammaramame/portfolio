@@ -1,4 +1,5 @@
 export const appConfig = {
   default_mode: "dark",
-  languages: ["en", "de", "nl", "fr", "se", "no", "dk"],
+  languages: ["en", "de"],
+  contact_form_url: "https://formspree.io/f/xwkjnpjd",
 };
