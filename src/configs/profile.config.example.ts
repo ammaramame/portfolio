@@ -906,4 +906,4 @@ const profileConfig = {
   },
 };
 
-export default switchConfigByLanguage(profileConfig, i18next.language, [...i18next.languages]) as ProfileConfigs;
+export default switchConfigByLanguage(profileConfig, i18next.language.replace(/-.*/, ""), [...i18next.languages]) as ProfileConfigs;
