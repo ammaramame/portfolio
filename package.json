@@ -1,0 +1,84 @@
+{
+  "name": "my-porto",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^6.3.0",
+    "@fortawesome/free-solid-svg-icons": "^6.3.0",
+    "@fortawesome/react-fontawesome": "^0.2.0",
+    "@steveeeie/react-page-transition": "^1.3.0",
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^13.5.0",
+    "@types/jest": "^27.5.2",
+    "@types/node": "^16.18.12",
+    "@types/react": "^18.0.28",
+    "@types/react-dom": "^18.0.10",
+    "animate.css": "^4.1.1",
+    "devicon": "^2.15.1",
+    "formik": "^2.2.9",
+    "i18next": "^22.4.11",
+    "i18next-browser-languagedetector": "^7.0.1",
+    "lightgallery": "^2.7.1",
+    "react": "^18.2.0",
+    "react-circle-flags": "^0.0.18",
+    "react-dom": "^18.2.0",
+    "react-i18next": "^12.2.0",
+    "react-icons": "^4.7.1",
+    "react-particles": "^2.9.3",
+    "react-responsive": "^9.0.2",
+    "react-router-dom": "^6.9.0",
+    "react-scripts": "5.0.1",
+    "tsparticles": "^2.9.3",
+    "tsparticles-engine": "^2.9.3",
+    "typed.js": "^2.0.12",
+    "typescript": "^4.9.5",
+    "uikit": "^3.15.24",
+    "use-sound": "^4.0.1",
+    "web-vitals": "^2.1.4",
+    "yup": "^1.0.2"
+  },
+  "scripts": {
+    "generate-configs":"node ./src/scripts/create-configs.js",
+    "prestart": "npm run generate-configs",
+    "prebuild":"npm run generate-configs",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ],
+    "overrides": []
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@storybook/addon-actions": "^6.5.16",
+    "@storybook/addon-essentials": "^6.5.16",
+    "@storybook/addon-interactions": "^6.5.16",
+    "@storybook/addon-links": "^6.5.16",
+    "@storybook/builder-webpack5": "^6.5.16",
+    "@storybook/manager-webpack5": "^6.5.16",
+    "@storybook/node-logger": "^6.5.16",
+    "@storybook/preset-create-react-app": "^4.1.2",
+    "@storybook/testing-library": "^0.0.13",
+    "@types/uikit": "^3.14.0",
+    "babel-plugin-named-exports-order": "^0.0.2",
+    "prop-types": "^15.8.1",
+    "webpack": "^5.75.0"
+  }
+}
