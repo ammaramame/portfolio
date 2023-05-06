@@ -27,6 +27,8 @@ const profileConfig = {
 
   profile_pic_main: "/imgs/profile.png",
 
+  profile_pic_about_me: "/imgs/my-rect-image.jpg",
+
   email: "ammar.amami.it@gmail.com",
 
   bio_en: `Well-qualified developer familiar with a wide range of programming utilities and languages, knowledgeable of backend and frontend development requirements. Able to handle any part of the process with ease. Collaborative team player with excellent technical abilities, offering 6 years of related experience.`,

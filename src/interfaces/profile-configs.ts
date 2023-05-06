@@ -4,6 +4,7 @@ export interface ProfileConfigs {
   first_name: string;
   last_name: string;
   profile_pic_main: string;
+  profile_pic_about_me: string;
   email: string;
   bio: string;
   skills_introduction: string;
