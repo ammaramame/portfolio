@@ -55,9 +55,9 @@ contact_form_url: "https://example.io/xwkjnpjd",
 
 ## Profile Configuration
 
-you can find these sections in the profile configuration file, you will full it with your data in the languages that you set in your app config file:
+You can find these sections in the profile configuration file, you will full it with your data in the languages that you set in your app config file:
 
-1. main information
+1. Main information
 
 ```
  first_name: "YOUR_FIRST_NAME",
@@ -89,7 +89,7 @@ you can find these sections in the profile configuration file, you will full it 
   years_of_experiance: 5,
 ```
 
-2. social media links
+2. Social media links
 
 ```
 
@@ -104,7 +104,7 @@ social_media: [
   ],
 ```
 
-3. skills set :
+3. Skills set :
 
 ```
  skill_set: [
@@ -116,7 +116,7 @@ social_media: [
   ]
 ```
 
-4. personal information
+4. Personal information
 
 ```
   personal_information: [
@@ -163,7 +163,7 @@ social_media: [
   ],
 ```
 
-5. experinces
+5. Experinces
 
 ```
   experince: [
@@ -210,7 +210,7 @@ education: [
 
 ```
 
-7. experince statistics
+7. Experince statistics
 
 ```
   statistics: [
@@ -221,7 +221,7 @@ education: [
   ],
 ```
 
-8. projects.
+8. Projects.
 
 ```
 
@@ -247,7 +247,7 @@ education: [
       ]
 ```
 
-9. project filters
+9. Project filters
 
 ```
  project_filters: {
