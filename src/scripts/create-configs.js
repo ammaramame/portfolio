@@ -13,18 +13,21 @@ fs.readdir(folder, (err, files) => {
   files.forEach((file) => {
     if (file.endsWith(".config.example.ts")) {
       const filename = path.parse(file).name;
-      const newFilename = `${filename}.ts`.replaceAll(".example", "");
+      const newFilename = `${filename}.ts`.replace(".example", "");
       const filePath = path.join(folder, file);
       const newFilePath = path.join(folder, newFilename);
       if (!fs.existsSync(newFilePath)) {
         fs.copyFile(filePath, newFilePath, (err) => {
           if (err) throw err;
-          console.log("\x1b[32m",`Renamed ${path.basename(filePath)
-          } to ${path.basename(newFilePath)}`);
+          console.log(
+            "\x1b[32m",
+            `Renamed ${path.basename(filePath)} to ${path.basename(
+              newFilePath
+            )}`
+          );
         });
-    
       } else {
-        console.log("\x1b[32m",`${path.basename(newFilePath)} already exists`);
+        console.log("\x1b[32m", `${path.basename(newFilePath)} already exists`);
       }
     }
   });
