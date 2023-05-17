@@ -1,4 +1,4 @@
-# React Application Readme
+# Portfolio Application Readme
 
 This is a React application that allows you to showcase your portfolio data. Follow the steps below to run the project.
 
