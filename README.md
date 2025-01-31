@@ -14,7 +14,7 @@ Before you start, make sure you have Node.jsand npm installed on your system.
 
 3. Run the following command to install the required libraries:
    <br>
-   `npm test`
+   `npm install`
 
 ## Configuration
 
